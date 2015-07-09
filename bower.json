@@ -1,0 +1,30 @@
+{
+  "name": "Song a day",
+  "version": "0.0.0",
+  "homepage": "https://github.com/YashdalfTheGray/song-day",
+  "authors": [
+    "YashdalfTheGray <yash.kulshrestha@gmail.com>"
+  ],
+  "description": "One song per day, curated.",
+  "main": "index.html",
+  "keywords": [
+    "song",
+    "day"
+  ],
+  "license": "GPL V3",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/lib/",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.2",
+    "angular-mocks": "~1.4.2",
+    "lodash": "~3.10.0",
+    "angular-material": "~0.10.0",
+    "angular-ui-router": "~0.2.15"
+  }
+}
