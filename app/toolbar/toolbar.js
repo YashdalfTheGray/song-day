@@ -3,9 +3,23 @@
 angular.module('songADay')
 .controller('ToolbarCtrl', 
     [
-        '$scope',
-        function ($scope) {
-            
+        '$scope', '$state',
+        function ($scope, $state) {
+            $scope.refreshPage = function refreshPage () {
+                console.log('Page refreshed!');
+            };
+
+            $scope.stateIsHome = function stateIsHome() {
+                return $state.is('home');
+            };
+
+            $scope.addSong = function addSong() {
+                $state.go('addsong');
+            };
+
+            $scope.showAbout = function showAbout() {
+                $state.go('about');
+            };
         }
     ]
 );
