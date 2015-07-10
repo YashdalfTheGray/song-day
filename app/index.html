@@ -24,17 +24,29 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.0/lodash.js"></script>
 
     <script src="app.js"></script>
+    <script src="toolbar/toolbar.js"></script>
 
 </head>
 <body ng-app="songADay">
 
-    <h1>One song a day!</h1>
+    <div ng-controller="ToolbarCtrl">
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2><span>Song a day</span></h2>
+                <span flex></span>
+                <md-button class="md-icon-button" aria-label="Refresh">
+                    <i class="material-icons icon-button-adjust">refresh</i>
+                </md-button>
+                <md-button class="md-icon-button" aria-label="More">
+                    <i class="material-icons icon-button-adjust">more_vert</i>
+                </md-button>
+            </div>
+        </md-toolbar>
+    </div>
 
-    <p><md-button class="md-raised md-primary">Primary</md-button></p>
-
-    <p><md-button class="md-raised md-accent">
+    <!-- <md-button class="md-raised md-accent">
         <i class="material-icons icon-button-adjust">polymer</i>
-    </md-button></p>
+    </md-button> -->
 
 </body>
 </html>
