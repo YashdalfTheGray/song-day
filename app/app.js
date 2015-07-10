@@ -3,7 +3,8 @@
 angular.module('songADay', 
         [
                 'ui.router',
-                'ngMaterial'
+                'ngMaterial',
+                'firebase'
         ]
 ).config([
         '$urlRouterProvider',

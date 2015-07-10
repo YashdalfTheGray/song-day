@@ -21,6 +21,9 @@
     <script src="//ajax.googleapis.com/ajax/libs/angular_material/0.10.0/angular-material.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.0/lodash.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/moment.min.js"></script>
+    <script src="//cdn.firebase.com/js/client/2.2.7/firebase.js"></script>
+    <script src="//cdn.firebase.com/libs/angularfire/1.1.2/angularfire.min.js"></script>
 
     <script src="app.js"></script>
     <script src="toolbar/toolbar.js"></script>
@@ -33,7 +36,7 @@
 <body ng-app="songADay">
 
     <md-content ng-controller="ToolbarCtrl">
-        <md-toolbar>
+        <md-toolbar md-scroll-shrink>
             <div class="md-toolbar-tools">
 
                 <h2 ng-if="stateIsHome()"><span>Song a day</span></h2>
@@ -51,15 +54,11 @@
                     </md-button>
                     <md-menu-content width="4">
                         <md-menu-item>
-                            <md-button ng-click="addSong()">
-                                Add a song
-                            </md-button>
+                            <md-button ng-click="addSong()">Add a song</md-button>
                         </md-menu-item>
                         <md-menu-divider></md-menu-divider>
                         <md-menu-item>
-                            <md-button ng-click="showAbout()">
-                                About
-                            </md-button>
+                            <md-button ng-click="showAbout()">About</md-button>
                         </md-menu-item>
                     </md-menu-content>
                 </md-menu>
@@ -68,7 +67,7 @@
         </md-toolbar>
     </md-content>
 
-    <md-content ui-view></md-content>
+    <div ui-view></div>
 
     <!-- <md-button class="md-raised md-accent">
         <i class="material-icons icon-button-adjust">polymer</i>
