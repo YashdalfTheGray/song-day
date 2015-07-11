@@ -2,7 +2,9 @@
 	<md-card ng-repeat="song in testData track by $index">
 		<md-card-content>
 			<h2 class="md-title">{{song.title}}</h2>
-			<p>{{song.date}}</p>
+            <p>by {{song.artist}}</p>
+            <p><a ng-href="{{song.link}}">Link to the track</a></p>
+			<p>{{formatDate(song.date)}}</p>
 		</md-card-content>
 	</md-card>
 </md-content>

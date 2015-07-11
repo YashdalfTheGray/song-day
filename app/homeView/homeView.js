@@ -3,46 +3,53 @@
 angular.module('songADay')
 .controller('HomeViewCtrl', 
     [
-        '$scope', '$firebaseArray',
-        function ($scope, $firebaseArray) {
+        '$scope', '$firebaseObject',
+        function ($scope, $firebaseObject) {
             var ref = new Firebase('https://onesongaday.firebaseio.com/songs');
 
-            var songsArray = $firebaseArray(ref);
+            var songs = $firebaseObject(ref);
 
-            songsArray.$loaded().then(function (result) {
+            songs.$loaded().then(function (result) {
                 console.log(result);
             });
 
             $scope.testData = [
                 {
-                    date: moment().calendar(),
-                    title: 'Test song title 1'
+                    date: '1436649308',
+                    title: 'Test song title 1',
+                    artist: 'Some artist',
+                    link: 'http://www.google.com'
                 },
                 {
-                    date: moment().subtract(1, 'day').calendar(),
+                    date: '1436562908',
                     title: 'Test song title 2'
                 },
                 {
-                    date: moment().subtract(2, 'day').calendar(),
+                    date: '1436476508',
                     title: 'Test song title 3'
                 },
                 {
-                    date: moment().subtract(3, 'day').calendar(),
+                    date: '1436390108',
                     title: 'Test song title 4'
                 },
                 {
-                    date: moment().subtract(4, 'day').calendar(),
+                    date: '1436303708',
                     title: 'Test song title 5'
                 },
                 {
-                    date: moment().subtract(5, 'day').calendar(),
+                    date: '1436217308',
                     title: 'Test song title 6'
                 },
                 {
-                    date: moment().subtract(6, 'day').calendar(),
+                    date: '1436130908',
                     title: 'Test song title 7'
                 }
             ];
+
+            $scope.formatDate = function formatDate (unixDate) {
+                return moment(unixDate, 'X').calendar();
+            };
+
         }
     ]
 );
