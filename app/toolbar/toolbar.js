@@ -20,6 +20,12 @@ angular.module('songADay')
             $scope.showAbout = function showAbout() {
                 $state.go('about');
             };
+
+            $scope.$root.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
+                if (fromState.name === 'addsong' && toState.name === 'home') {
+                    $scope.refreshPage();
+                }
+            });
         }
     ]
 );

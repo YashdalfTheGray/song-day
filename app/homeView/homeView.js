@@ -49,7 +49,6 @@ angular.module('songADay')
             $scope.formatDate = function formatDate (unixDate) {
                 return moment(unixDate, 'X').calendar();
             };
-
         }
     ]
 );
