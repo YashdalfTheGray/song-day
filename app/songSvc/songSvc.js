@@ -7,7 +7,7 @@ angular.module('songADay')
         function ($firebaseObject, $firebaseAuth) {
             var ref = new Firebase('https://onesongaday.firebaseio.com/songs');
 
-            this.addSong = function addSong (songTitle, songArtist, songLink) {
+            this.addSong = function addSong (song) {
                 var dateTime = moment().format('X');
 
                 var songToAdd = ref.push();
@@ -15,9 +15,10 @@ angular.module('songADay')
                 // the multiplication by -1 stores songs in reverse chronological order!
                 songToAdd.setWithPriority(
                     { 
-                        title: songTitle,
-                        artist: songArtist,
-                        link: songLink, 
+                        title: song.title,
+                        artist: song.artist,
+                        genre: song.genre,
+                        link: song.link, 
                         date: dateTime
                     }, 
                     parseInt(dateTime, 10) * -1

@@ -7,7 +7,7 @@ angular.module('songADay')
         function ($scope, $state, $mdToast, songSvc) {
 
             $scope.addSong = function (song) {
-                songSvc.addSong(song.title, song.artist, song.link);
+                songSvc.addSong(song);
 
                 $mdToast.show(
                     $mdToast.simple()
