@@ -22,8 +22,9 @@ angular.module('songADay')
             };
 
             $scope.$root.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
-                if (fromState.name === 'addsong' && toState.name === 'home') {
+                if (fromState.name === 'addsong' && toState.name === 'home' && $scope.$root.songAdded) {
                     $scope.refreshPage();
+                    $scope.$root.songAdded = false;
                 }
             });
         }

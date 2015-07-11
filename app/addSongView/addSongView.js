@@ -5,18 +5,20 @@ angular.module('songADay')
     [
         '$scope', '$state', '$mdToast', 'songSvc',
         function ($scope, $state, $mdToast, songSvc) {
-            $scope.pageName = 'Add song';
-            $scope.addSong = function (songTitle, songArtist, songLink) {
-                songSvc.addSong(songTitle, songArtist, songLink);
+
+            $scope.addSong = function (song) {
+                songSvc.addSong(song.title, song.artist, song.link);
 
                 $mdToast.show(
                     $mdToast.simple()
-                        .content(songTitle + ' has been successfully added!')
+                        .content(song.title + ' has been successfully added!')
                         .position('bottom right')
                         .hideDelay(3000)
                 );
 
-                $state.go('home');   
+                $scope.$root.songAdded = true;
+
+                $state.go('home');
             };
         }
     ]
