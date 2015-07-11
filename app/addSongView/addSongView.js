@@ -3,9 +3,10 @@
 angular.module('songADay')
 .controller('AddSongViewCtrl', 
     [
-        '$scope',
-        function ($scope) {
-            $scope.pageName = 'Add Song';
+        '$scope', 'songSvc',
+        function ($scope, songSvc) {
+            $scope.pageName = 'Add song';
+            $scope.addSong = songSvc.addSong;
         }
     ]
 );
