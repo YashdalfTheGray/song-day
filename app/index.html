@@ -40,39 +40,36 @@
         <md-toolbar md-scroll-shrink>
             <div class="md-toolbar-tools">
 
-                <h2 ng-if="stateIsHome()"><span>Song a day</span></h2>
-                <h2 ng-if="!stateIsHome()"><span><a ui-sref="home">Song a day</a></span></h2>
+                <h2><span>Song a day</span></h2>
 
                 <span flex></span>
 
-                <md-button class="md-icon-button" aria-label="Refresh" ng-click="refreshPage()">
-                    <i class="material-icons icon-button-adjust">refresh</i>
+                <md-button class="md-icon-button" aria-label="Add a song" ng-click="goTo('addsong')" ng-hide="stateIs('addsong')">
+                    <md-tooltip>
+                          Add a song
+                    </md-tooltip>
+                    <i class="material-icons icon-button-adjust">add</i>
                 </md-button>
 
-                <md-menu>
-                    <md-button class="md-icon-button" aria-label="More" ng-click="$mdOpenMenu()">
-                        <i class="material-icons icon-button-adjust">more_vert</i>
-                    </md-button>
-                    <md-menu-content width="4">
-                        <md-menu-item>
-                            <md-button ng-click="addSong()">Add a song</md-button>
-                        </md-menu-item>
-                        <md-menu-divider></md-menu-divider>
-                        <md-menu-item>
-                            <md-button ng-click="showAbout()">About</md-button>
-                        </md-menu-item>
-                    </md-menu-content>
-                </md-menu>
+                <md-button class="md-icon-button" aria-label="Home" ng-click="goTo('home')" ng-hide="stateIs('home')">
+                    <md-tooltip>
+                          Home
+                    </md-tooltip>
+                    <i class="material-icons icon-button-adjust">home</i>
+                </md-button>
+
+                <md-button class="md-icon-button" aria-label="About" ng-click="goTo('about')">
+                    <md-tooltip>
+                          About app
+                    </md-tooltip>
+                    <i class="material-icons icon-button-adjust">info_outline</i>
+                </md-button>
 
             </div>
         </md-toolbar>
     </md-content>
 
     <div ui-view></div>
-
-    <!-- <md-button class="md-raised md-accent">
-        <i class="material-icons icon-button-adjust">polymer</i>
-    </md-button> -->
 
 </body>
 </html>
