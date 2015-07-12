@@ -17,8 +17,8 @@ angular.module('songADay')
                     { 
                         title: song.title,
                         artist: song.artist,
-                        genre: song.genre,
-                        link: song.link, 
+                        genre: song.genre || '',
+                        link: song.link || '', 
                         date: dateTime
                     }, 
                     parseInt(dateTime, 10) * -1
