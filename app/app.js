@@ -38,7 +38,10 @@ angular.module('songADay',
 
                 $mdThemingProvider.theme('default')
                     .primaryPalette('blue')
-                    .accentPalette('green')
+                    .accentPalette('green',{
+                        'default': 'A400',
+                        'hue-1': 'A700'
+                    })
                     .warnPalette('red');
         }
 ]);

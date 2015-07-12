@@ -1,3 +1,7 @@
 .icon-button-adjust {
     vertical-align: middle;
 }
+
+md-progress-linear.flush-progress {
+    margin-top: -5px;
+}
