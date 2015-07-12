@@ -16,8 +16,6 @@ angular.module('songADay')
                         .hideDelay(3000)
                 );
 
-                $scope.$root.songAdded = true;
-
                 $state.go('home');
             };
         }

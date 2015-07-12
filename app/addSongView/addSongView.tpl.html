@@ -19,17 +19,11 @@
                 </md-input-container>
                 <md-input-container flex>
                     <label>Song Genre</label>
-                    <input id="genre" ng-model="song.genre" name="genre" ng-required="addForm.genre.$touched">
-                    <div ng-messages="addForm.genre.$error">
-                        <div ng-message="required">Required</div>
-                    </div>
+                    <input id="genre" ng-model="song.genre" name="genre">
                 </md-input-container>
                 <md-input-container flex>
                     <label>Song Link</label>
-                    <input id="link" ng-model="song.link" name="link" ng-required="addForm.link.$touched">
-                    <div ng-messages="addForm.link.$error">
-                        <div ng-message="required">Required</div>
-                    </div>
+                    <input id="link" ng-model="song.link" name="link">
                 </md-input-container>
                 <p></p>
                 <md-button class="md-raised md-accent" ng-click="addSong(song)" flex>Add song</md-button>
