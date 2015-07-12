@@ -5,8 +5,14 @@
 		<md-card-content>
 			<h2 class="md-title">{{song.title}}</h2>
             <p>by {{song.artist}}</p>
-            <p><a ng-href="{{song.link}}">Link to the track</a></p>
-			<p>{{formatDate(song.date)}}</p>
+            <span class="inline-list">
+                <small>Posted {{formatDate(song.date)}}</small>
+                <small ng-if="song.genre !== ''">{{song.genre}}</small>
+            </span>
 		</md-card-content>
+        <div class="md-actions" layout="row" layout-align="end center">
+            <md-button ng-click="externalClick(song.link)" ng-disabled="song.link === ''">LINK</md-button>
+            <md-button ng-click="editSongDetails()" ng-disabled="true">EDIT</md-button>
+        </div>
 	</md-card>
 </md-content>

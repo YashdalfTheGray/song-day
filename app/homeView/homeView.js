@@ -3,8 +3,8 @@
 angular.module('songADay')
 .controller('HomeViewCtrl', 
     [
-        '$scope', '$firebaseArray',
-        function ($scope, $firebaseArray) {
+        '$scope', '$window', '$firebaseArray',
+        function ($scope, $window, $firebaseArray) {
             var ref = new Firebase('https://onesongaday.firebaseio.com/songs');
             var songs = $firebaseArray(ref);
 
@@ -18,6 +18,14 @@ angular.module('songADay')
             $scope.formatDate = function formatDate (unixDate) {
                 return moment(unixDate, 'X').calendar();
             };
+
+            $scope.externalClick = function externalClick (link) {
+                $window.open(link, '_blank');
+            }
+
+            $scope.editSongDetails = function() {
+                // this is for future implementations
+            }
         }
     ]
 );
