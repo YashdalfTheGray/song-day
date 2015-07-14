@@ -3,6 +3,7 @@
 angular.module('songADay', 
         [
                 'ui.router',
+                'ngAnimate',
                 'ngMaterial',
                 'firebase'
         ]
