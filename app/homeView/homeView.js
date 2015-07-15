@@ -21,11 +21,15 @@ angular.module('songADay')
 
             $scope.externalClick = function externalClick (link) {
                 $window.open(link, '_blank');
-            }
+            };
 
-            $scope.editSongDetails = function() {
+            $scope.editSongDetails = function editSongDetails() {
                 // this is for future implementations
-            }
+            };
+
+            $scope.getVideoId = function getVideoId (link) {
+                return link.slice(-11, link.length);
+            };
         }
     ]
 );
