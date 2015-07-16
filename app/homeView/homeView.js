@@ -9,6 +9,9 @@ angular.module('songADay')
             var songs = $firebaseArray(ref);
 
             $scope.contentLoaded = false;
+            if ($scope.$root.showYoutubePlayer === undefined) {
+                $scope.$root.showYoutubePlayer = true;
+            }
 
             songs.$loaded().then(function (result) {
                 $scope.songs = result;
@@ -30,8 +33,6 @@ angular.module('songADay')
             $scope.getVideoId = function getVideoId (link) {
                 return link.slice(-11, link.length);
             };
-
-            $scope.showYoutubePlayer = songSvc.showYoutubePlayer;
         }
     ]
 );

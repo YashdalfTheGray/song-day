@@ -2,7 +2,7 @@
     <md-progress-linear class="md-accent md-hue-1 flush-progress" md-mode="indeterminate" ng-hide="contentLoaded">
     </md-progress-linear>
 	<md-card ng-repeat="song in songs track by $index" ng-show="contentLoaded">
-        <google-youtube video-id="{{getVideoId(song.link)}}" class="md-card-image" ng-if="showYoutubePlayer">
+        <google-youtube video-id="{{getVideoId(song.link)}}" class="md-card-image" ng-if="$root.showYoutubePlayer">
         </google-youtube>
 		<md-card-content>
 			<h2 class="md-title">{{song.title}}</h2>
