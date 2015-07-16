@@ -28,10 +28,10 @@ angular.module('songADay',
                 templateUrl: 'addSongView/addSongView.tpl.html',
                 controller: 'AddSongViewCtrl'
             })
-            .state('about', {
-                url: '/about',
-                templateUrl: 'aboutView/aboutView.tpl.html',
-                controller: 'AboutViewCtrl'
+            .state('settings', {
+                url: '/settings',
+                templateUrl: 'settingsView/settingsView.tpl.html',
+                controller: 'SettingsViewCtrl'
             });
 
             $urlRouterProvider.otherwise('/');

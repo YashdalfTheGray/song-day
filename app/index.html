@@ -34,12 +34,12 @@
 
     <!-- App JS -->
     <script src="app.js"></script>
+    <script src="songSvc/songSvc.js"></script>
     <script src="toolbar/toolbar.js"></script>
-    <script src="aboutView/aboutView.js"></script>
+    <script src="settingsView/settingsView.js"></script>
     <script src="addSongView/addSongView.js"></script>
     <script src="homeView/homeView.js"></script>
     <script src="loginView/loginView.js"></script>
-    <script src="songSvc/songSvc.js"></script>
 
 </head>
 <body ng-app="songADay">
@@ -66,11 +66,11 @@
                     <i class="material-icons icon-button-adjust">home</i>
                 </md-button>
 
-                <md-button class="md-icon-button" aria-label="About" ng-click="goTo('about')">
+                <md-button class="md-icon-button" aria-label="Settings" ng-click="goTo('settings')">
                     <md-tooltip>
-                          About app
+                          Settings
                     </md-tooltip>
-                    <i class="material-icons icon-button-adjust">info_outline</i>
+                    <i class="material-icons icon-button-adjust">settings</i>
                 </md-button>
 
             </div>
