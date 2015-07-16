@@ -7,6 +7,8 @@ angular.module('songADay')
         function ($firebaseObject, $firebaseAuth) {
             var ref = new Firebase('https://onesongaday.firebaseio.com/songs');
 
+            this.showYoutubePlayer = true; 
+
             this.addSong = function addSong (song) {
                 var dateTime = moment().format('X');
 
@@ -26,7 +28,8 @@ angular.module('songADay')
             };
 
             return {
-                addSong: this.addSong
+                addSong: this.addSong,
+                showYoutubePlayer: this.showYoutubePlayer
             };
         }
     ]

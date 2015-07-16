@@ -3,8 +3,8 @@
 angular.module('songADay')
 .controller('HomeViewCtrl', 
     [
-        '$scope', '$window', '$firebaseArray',
-        function ($scope, $window, $firebaseArray) {
+        '$scope', '$window', '$firebaseArray', 'songSvc',
+        function ($scope, $window, $firebaseArray, songSvc) {
             var ref = new Firebase('https://onesongaday.firebaseio.com/songs');
             var songs = $firebaseArray(ref);
 
@@ -30,6 +30,8 @@ angular.module('songADay')
             $scope.getVideoId = function getVideoId (link) {
                 return link.slice(-11, link.length);
             };
+
+            $scope.showYoutubePlayer = songSvc.showYoutubePlayer;
         }
     ]
 );
