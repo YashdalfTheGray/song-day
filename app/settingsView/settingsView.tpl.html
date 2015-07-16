@@ -2,7 +2,7 @@
     <md-card>
         <md-card-content>
             <h2 class="md-title">Settings</h2>
-            <md-switch ng-model="showYoutubePlayer" aria-label="Enable YouTube player">
+            <md-switch ng-model="enablePlayer" aria-label="Enable YouTube player" ng-change="onChange(enablePlayer)">
                 Enable embedded YouTube player for songs
             </md-switch>
         </md-card-content>
@@ -10,6 +10,9 @@
     <md-card>
         <md-card-content>
             <h2 class="md-title">About App</h2>
+            <p>All the content listed on this app is the property of their respective owners.</p>
+            <p>This app is built using <a href="https://angularjs.org/">AngularJS</a> and <a href="https://material.angularjs.org/latest/#/">angular-material</a> for the front end and <a href="https://www.firebase.com/">Firebase</a> for the backend (hosting and data).
+            <p>All the code written is open sourced under GPL v3 and is available on <a href="https://github.com/YashdalfTheGray/song-day">GitHub</a>.</p>
         </md-card-content>
     </md-card>
 </md-content>
