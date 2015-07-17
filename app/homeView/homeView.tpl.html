@@ -14,7 +14,7 @@
 		</md-card-content>
         <div class="md-actions" layout="row" layout-align="end center">
             <md-button ng-click="externalClick(song.link)" ng-disabled="song.link === ''">LINK</md-button>
-            <md-button ng-click="editSongDetails()" ng-disabled="true">EDIT</md-button>
+            <md-button ng-click="editSongDetails($event, song)" ng-disabled="false">EDIT</md-button>
         </div>
 	</md-card>
 </md-content>
