@@ -1,0 +1,42 @@
+<md-dialog>
+    <form name="editForm">
+        <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>Edit song</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="hide()">
+                <i class="material-icons icon-button-adjust">close</i>
+            </md-button>
+        </div>
+        </md-toolbar>
+        <md-dialog-content layout="column">
+            <md-input-container flex>
+                <label>Song Title</label>
+                <input id="title" ng-model="song.title" name="title" ng-required="editForm.title.$touched">
+                <div ng-messages="editForm.title.$error">
+                    <div ng-message="required">Required</div>
+                </div>
+            </md-input-container>
+            <md-input-container flex>
+                <label>Song Artist</label>
+                <input id="artist" ng-model="song.artist" name="artist" ng-required="editForm.artist.$touched">
+                <div ng-messages="editForm.artist.$error">
+                    <div ng-message="required">Required</div>
+                </div>
+            </md-input-container>
+            <md-input-container flex>
+                <label>Song Genre</label>
+                <input id="genre" ng-model="song.genre" name="genre">
+            </md-input-container>
+            <md-input-container flex>
+                <label>Song Link</label>
+                <input id="link" ng-model="song.link" name="link">
+            </md-input-container>
+            <p></p>
+        </md-dialog-content>
+        <div class="md-actions" layout="row">
+            <md-button ng-click="cancel()" flex>Cancel</md-button>
+            <md-button ng-click="saveSong(song)" flex>Save</md-button>
+        </div>
+    </form>
+</md-dialog>
