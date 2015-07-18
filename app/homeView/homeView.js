@@ -29,11 +29,12 @@ angular.module('songADay')
             $scope.editSongDetails = function editSongDetails(ev, songObj) {
                 $mdDialog.show({
                       controller: EditDialogCtrl,
-                      templateUrl: 'homeView/editDialog.tpl.html',
+                      templateUrl: 'editSongDialog/editSongDialog.tpl.html',
                       parent: angular.element(document.body),
                       targetEvent: ev,
                       locals: {
-                         song: _.assign({}, songObj)
+                         song: _.assign({}, songObj),
+                         edit: true
                       }
                 })
                 .then(function (result) {
@@ -49,8 +50,11 @@ angular.module('songADay')
                     }
                 });
                  
-                function EditDialogCtrl ($scope, $mdDialog, song) {
+                function EditDialogCtrl ($scope, $mdDialog, song, edit) {
                     $scope.song = song;
+                    $scope.edit = edit;
+
+                    $scope.buttonTitle = edit ? 'Save' : 'Add';
 
                     $scope.cancel = function cancelDialog() {
                         $mdDialog.cancel();
