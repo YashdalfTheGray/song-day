@@ -15,7 +15,7 @@ angular.module('songADay')
 
             $scope.addSong = function addSong(ev) {
                 $mdDialog.show({
-                      controller: AddSongDialogCtrl,
+                      controller: songSvc.SongDialogController,
                       templateUrl: 'editSongDialog/editSongDialog.tpl.html',
                       parent: angular.element(document.body),
                       targetEvent: ev,
@@ -29,25 +29,6 @@ angular.module('songADay')
                         songSvc.addSong(result);
                     }
                 });
-                 
-                function AddSongDialogCtrl ($scope, $mdDialog, song, edit) {
-                    $scope.song = song;
-                    $scope.edit = edit;
-
-                    $scope.buttonTitle = edit ? 'Save' : 'Add';
-
-                    $scope.cancel = function cancelDialog() {
-                        $mdDialog.cancel();
-                    };
-
-                    $scope.hide = function hideDialog() {
-                        $mdDialog.hide();
-                    };
-
-                    $scope.saveSong = function SaveSong(song) {
-                        $mdDialog.hide(song);
-                    };
-                }
             };
         }
     ]
