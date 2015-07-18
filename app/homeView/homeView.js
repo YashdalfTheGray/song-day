@@ -28,7 +28,7 @@ angular.module('songADay')
 
             $scope.editSongDetails = function editSongDetails(ev, songObj) {
                 $mdDialog.show({
-                      controller: EditDialogCtrl,
+                      controller: EditSongDialogCtrl,
                       templateUrl: 'editSongDialog/editSongDialog.tpl.html',
                       parent: angular.element(document.body),
                       targetEvent: ev,
@@ -50,7 +50,7 @@ angular.module('songADay')
                     }
                 });
                  
-                function EditDialogCtrl ($scope, $mdDialog, song, edit) {
+                function EditSongDialogCtrl ($scope, $mdDialog, song, edit) {
                     $scope.song = song;
                     $scope.edit = edit;
 
