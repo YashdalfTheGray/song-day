@@ -3,8 +3,8 @@
 angular.module('songADay')
 .controller('HomeViewCtrl', 
     [
-        '$scope', '$window', '$firebaseArray', '$mdDialog', 'songSvc',
-        function ($scope, $window, $firebaseArray, $mdDialog, songSvc) {
+        '$scope', '$window', '$state', '$firebaseArray', '$mdDialog', '$mdMedia', '$mdToast', 'songSvc',
+        function ($scope, $window, $state, $firebaseArray, $mdDialog, $mdMedia, $mdToast, songSvc) {
             var ref = new Firebase('https://onesongaday.firebaseio.com/songs');
             var songs = $firebaseArray(ref);
 
@@ -27,28 +27,38 @@ angular.module('songADay')
             };
 
             $scope.editSongDetails = function editSongDetails(ev, songObj) {
-                $mdDialog.show({
-                      controller: songSvc.SongDialogController,
-                      templateUrl: 'editSongDialog/editSongDialog.tpl.html',
-                      parent: angular.element(document.body),
-                      targetEvent: ev,
-                      locals: {
-                         song: _.assign({}, songObj),
-                         edit: true
-                      }
-                })
-                .then(function (result) {
-                    if(result) {
-                        songObj.title = result.title;
-                        songObj.artist = result.artist;
-                        songObj.genre = result.genre;
-                        songObj.link = result.link;
-                        songs.$save(songObj)
-                        .then(function (result) {
-                            console.log('Record with id ' + result.key() + ' was saved to Firebase.');
-                        });
-                    }
-                });
+                if($mdMedia('gt-md')) {
+                    $mdDialog.show({
+                          controller: songSvc.SongDialogController,
+                          templateUrl: 'editSongDialog/editSongDialog.tpl.html',
+                          parent: angular.element(document.body),
+                          targetEvent: ev,
+                          locals: {
+                             song: _.assign({}, songObj),
+                             edit: true
+                          }
+                    })
+                    .then(function (result) {
+                        if(result) {
+                            songObj.title = result.title;
+                            songObj.artist = result.artist;
+                            songObj.genre = result.genre;
+                            songObj.link = result.link;
+                            songs.$save(songObj)
+                            .then(function (result) {
+                                $mdToast.show(
+                                    $mdToast.simple()
+                                        .content(songObj.title + ' has been successfully saved!')
+                                        .position('bottom right')
+                                        .hideDelay(3000)
+                                );
+                            });
+                        }
+                    });
+                }
+                else {
+                    $state.go('editsong', { songId: songObj.$id });
+                }
             };
 
             $scope.getVideoId = function getVideoId (link) {

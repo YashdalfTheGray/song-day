@@ -3,8 +3,8 @@
 angular.module('songADay')
 .factory('songSvc', 
     [
-        '$firebaseObject', '$firebaseAuth', 
-        function ($firebaseObject, $firebaseAuth) {
+        '$firebaseArray', '$firebaseAuth', 
+        function ($firebaseArray, $firebaseAuth) {
             var ref = new Firebase('https://onesongaday.firebaseio.com/songs');
 
             this.addSong = function addSong (song) {
@@ -25,6 +25,7 @@ angular.module('songADay')
                 );
             };
 
+            // Find a better place for this
             this.SongDialogController = function AddSongDialogCtrl ($scope, $mdDialog, song, edit) {
                 $scope.song = song;
                 $scope.edit = edit;
