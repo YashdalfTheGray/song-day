@@ -23,11 +23,6 @@ angular.module('songADay',
                 templateUrl: 'loginView/loginView.tpl.html',
                 controller: 'LoginViewCtrl'
             })
-            .state('addsong', {
-                url: '/add',
-                templateUrl: 'addSongView/addSongView.tpl.html',
-                controller: 'AddSongViewCtrl'
-            })
             .state('settings', {
                 url: '/settings',
                 templateUrl: 'settingsView/settingsView.tpl.html',
