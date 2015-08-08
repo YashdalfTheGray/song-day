@@ -23,3 +23,5 @@ The current progress is hosted up at https://onesongaday.firebaseapp.com/.
 [Momentjs Docs](http://momentjs.com/docs/)
 
 [Material Icons setup](http://google.github.io/material-design-icons/)
+
+[ngStorage](https://github.com/gsklee/ngStorage)
