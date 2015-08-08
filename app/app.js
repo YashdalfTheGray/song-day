@@ -5,6 +5,7 @@ angular.module('songADay',
                 'ui.router',
                 'ngAnimate',
                 'ngMaterial',
+                'ngStorage',
                 'firebase'
         ]
 ).config([
