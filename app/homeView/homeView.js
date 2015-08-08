@@ -3,15 +3,16 @@
 angular.module('songADay')
 .controller('HomeViewCtrl', 
     [
-        '$scope', '$window', '$state', '$firebaseArray', '$mdDialog', '$mdMedia', '$mdToast', 'songSvc',
-        function ($scope, $window, $state, $firebaseArray, $mdDialog, $mdMedia, $mdToast, songSvc) {
+        '$scope', '$window', '$state', '$firebaseArray', '$localStorage', '$mdDialog', '$mdMedia', '$mdToast', 'songSvc',
+        function ($scope, $window, $state, $firebaseArray, $localStorage, $mdDialog, $mdMedia, $mdToast, songSvc) {
             var ref = new Firebase('https://onesongaday.firebaseio.com/songs');
             var songs = $firebaseArray(ref);
 
             $scope.contentLoaded = false;
-            if ($scope.$root.showYoutubePlayer === undefined) {
-                $scope.$root.showYoutubePlayer = true;
-            }
+
+            $scope.$storage = $localStorage.$default({
+                showYoutubePlayer: true
+            });
 
             songs.$loaded().then(function (result) {
                 $scope.songs = result;
