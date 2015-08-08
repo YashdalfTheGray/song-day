@@ -27,6 +27,13 @@ angular.module('songADay')
                 $window.open(link, '_blank');
             };
 
+            $scope.isYoutubeLink = function isYoutubeLink (link) {
+                if (link) {
+                    return /youtu\.?be/.test(link);
+                }
+                return false;
+            };
+
             $scope.editSongDetails = function editSongDetails(ev, songObj) {
                 if($mdMedia('gt-md')) {
                     $mdDialog.show({

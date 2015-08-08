@@ -43,7 +43,7 @@ angular.module('songADay')
                 $scope.saveSong = function SaveSong(song) {
                     $mdDialog.hide(song);
                 };
-            }
+            };
 
             return {
                 addSong: this.addSong,
